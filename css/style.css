@@ -72,11 +72,13 @@ body {
 
 /* Buttons */
 .btn {
+    display: inline-block;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn.primary {
@@ -85,11 +87,20 @@ body {
     border: none;
 }
 
+.btn.primary:hover {
+    background: var(--secondary-color);
+}
+
 .btn.secondary {
     background: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     margin-left: 1rem;
+}
+
+.btn.secondary:hover {
+    background: var(--primary-color);
+    color: white;
 }
 
 /* Features Section */
