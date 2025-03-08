@@ -29,6 +29,7 @@ body {
     background: var(--background-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1rem 0;
+    position: relative;
 }
 
 .navbar .container {
@@ -51,6 +52,34 @@ body {
     border-radius: 0.5rem;
     cursor: pointer;
     margin-left: 2rem;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Hero Section */
@@ -283,8 +312,37 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        padding: 80px 2rem 2rem;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.1rem;
+    }
+    
+    .nav-links .connect-wallet {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
     }
     
     .hero h1 {
