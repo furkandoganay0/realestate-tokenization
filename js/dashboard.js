@@ -1,17 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (!window.userState.isConnected) {
-        document.querySelector('.dashboard').innerHTML = `
-            <div class="container">
-                <div class="not-connected">
-                    <h2>Lütfen cüzdanınızı bağlayın</h2>
-                    <p>Yatırımlarınızı görüntülemek için cüzdanınızı bağlamanız gerekmektedir.</p>
-                    <button onclick="window.connectWallet()" class="btn primary">Cüzdan Bağla</button>
-                </div>
-            </div>
-        `;
-        return;
-    }
-
     // Örnek veriler
     const portfolioData = {
         labels: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz'],
@@ -63,22 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Portföy değeri hesaplama güncellemesi
-    const portfolioValue = window.userState.wallet.tokens.reduce((total, token) => {
-        const property = window.properties.find(p => p.id === token.propertyId);
-        if (property) {
-            return total + (property.price * token.amount);
-        }
-        return total;
-    }, 0);
-
-    // Portföy özeti güncelleme
-    document.querySelector('.summary-value').textContent = formatCurrency(portfolioValue);
-    document.querySelector('.summary-change').innerHTML = `
-        <i class="fas fa-arrow-up"></i> %12.5
-    `;
-    document.querySelector('.wallet-balance').textContent = formatCurrency(window.userState.wallet.balance);
-    
     // Portföy grafiği
     const portfolioChart = new Chart(
         document.getElementById('portfolioChart'),
@@ -119,25 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    // Gayrimenkul listesini güncelle
+    // Gayrimenkul listesini oluştur
     const propertyList = document.querySelector('.property-list');
-    propertyList.innerHTML = window.userState.wallet.tokens.map(token => {
-        const property = properties.find(p => p.id === token.propertyId);
-        return `
-            <div class="property-item">
-                <img src="${property.image}" alt="${property.title}" class="property-image">
-                <div class="property-info">
-                    <div class="property-title">${property.title}</div>
-                    <div class="property-location">${property.location}</div>
-                    <div class="property-stats">
-                        <div>${token.amount} Token</div>
-                        <div>Değer: ${(property.price * token.amount).toLocaleString()} TL</div>
-                        <div>Getiri: ${property.annualReturn}</div>
-                    </div>
+    propertyList.innerHTML = properties.map(property => `
+        <div class="property-item">
+            <img src="${property.image}" alt="${property.title}" class="property-image">
+            <div class="property-info">
+                <div class="property-title">${property.title}</div>
+                <div class="property-location">${property.location}</div>
+                <div class="property-stats">
+                    <div>${property.tokens} Token</div>
+                    <div>Değer: ${property.value}</div>
+                    <div>Getiri: ${property.return}</div>
                 </div>
             </div>
-        `;
-    }).join('');
+        </div>
+    `).join('');
 
     // İşlem listesini oluştur
     const transactionList = document.querySelector('.transaction-list');

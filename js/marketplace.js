@@ -122,9 +122,8 @@ function createPropertyCard(property) {
                 </div>
             </div>
             <div class="property-footer">
-                <button onclick="startInvestment(${property.id})" class="invest-button">
-                    Yatırım Yap
-                </button>
+                <div class="token-price">Token Başına: ${property.price} TL</div>
+                <button class="invest-button" onclick="startInvestment(${property.id})">Yatırım Yap</button>
             </div>
         </div>
     `;
@@ -196,37 +195,18 @@ function filterProperties() {
     renderProperties(filtered);
 }
 
-// Yatırım başlatma fonksiyonu güncelleme
+// Yatırım başlatma fonksiyonu
 function startInvestment(propertyId) {
-    if (!window.userState.isConnected) {
-        if (confirm('Yatırım yapmak için cüzdan bağlamanız gerekiyor. Şimdi bağlamak ister misiniz?')) {
-            window.connectWallet();
-        }
+    if (!window.ethereum) {
+        alert('Lütfen MetaMask yükleyin!');
         return;
     }
     
     const property = properties.find(p => p.id === propertyId);
     if (property) {
-        const maxTokens = Math.floor(window.userState.wallet.balance / property.price);
-        
-        if (maxTokens < 1) {
-            alert(`Yetersiz bakiye! En az 1 token için ${formatCurrency(property.price)} gerekiyor.`);
-            return;
-        }
-
-        const amount = prompt(
-            `Kaç adet token almak istiyorsunuz?\n\n` +
-            `Token Fiyatı: ${formatCurrency(property.price)}\n` +
-            `Mevcut Bakiye: ${formatCurrency(window.userState.wallet.balance)}\n` +
-            `Alabileceğiniz Maximum Token: ${maxTokens}\n\n` +
-            `Miktar giriniz (1-${maxTokens}):`
-        );
-        
-        if (amount && !isNaN(amount) && amount > 0 && amount <= maxTokens) {
-            window.buyTokens(propertyId, parseInt(amount));
-        } else if (amount) {
-            alert('Geçersiz miktar girdiniz!');
-        }
+        // Burada yatırım modalı açılabilir
+        alert(`${property.title} için yatırım işlemi başlatılıyor...`);
+        // Token satın alma işlemleri buraya eklenecek
     }
 }
 
