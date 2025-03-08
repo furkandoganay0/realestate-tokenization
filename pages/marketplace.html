@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyasa - TokenEstate</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/marketplace.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/logo.svg" alt="TokenEstate Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Ana Sayfa</a>
+                <a href="marketplace.html" class="active">Piyasa</a>
+                <a href="dashboard.html">Yatırımlarım</a>
+                <button class="connect-wallet">Cüzdan Bağla</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="marketplace-header">
+        <div class="container">
+            <h1>Tokenize Edilmiş Gayrimenkuller</h1>
+            <div class="filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Gayrimenkul ara...">
+                </div>
+                <div class="filters">
+                    <select id="propertyType">
+                        <option value="">Gayrimenkul Tipi</option>
+                        <option value="residential">Konut</option>
+                        <option value="commercial">Ticari</option>
+                        <option value="land">Arsa</option>
+                    </select>
+                    <select id="location">
+                        <option value="">Konum</option>
+                        <option value="istanbul">İstanbul</option>
+                        <option value="ankara">Ankara</option>
+                        <option value="izmir">İzmir</option>
+                    </select>
+                    <select id="priceRange">
+                        <option value="">Fiyat Aralığı</option>
+                        <option value="0-1000">0-1000 TL</option>
+                        <option value="1000-5000">1000-5000 TL</option>
+                        <option value="5000+">5000+ TL</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="property-grid">
+        <div class="container">
+            <div class="properties">
+                <!-- Property cards will be dynamically added here -->
+            </div>
+            <div class="pagination">
+                <button class="pagination-btn" id="prevPage" disabled>
+                    <i class="fas fa-chevron-left"></i> Önceki
+                </button>
+                <div class="page-numbers">
+                    <!-- Page numbers will be dynamically added here -->
+                </div>
+                <button class="pagination-btn" id="nextPage">
+                    Sonraki <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="about.html">Hakkımızda</a>
+                    <a href="how-it-works.html">Nasıl Çalışır</a>
+                    <a href="contact.html">İletişim</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Yasal</h4>
+                    <a href="terms.html">Kullanım Koşulları</a>
+                    <a href="privacy.html">Gizlilik Politikası</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/marketplace.js"></script>
+</body>
+</html> 

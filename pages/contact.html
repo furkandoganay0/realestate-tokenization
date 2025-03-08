@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - TokenEstate</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../assets/logo.svg" alt="TokenEstate Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">Ana Sayfa</a>
+                <a href="marketplace.html">Piyasa</a>
+                <a href="dashboard.html">Yatırımlarım</a>
+                <button class="connect-wallet">Cüzdan Bağla</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="contact-header">
+        <div class="container">
+            <h1>İletişim</h1>
+            <p>Sorularınız için bize ulaşın</p>
+        </div>
+    </header>
+
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Adres</h3>
+                        <p>Levent Mah. Büyükdere Cad. No:123<br>Şişli, İstanbul</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Telefon</h3>
+                        <p>+90 (212) 123 45 67</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>E-posta</h3>
+                        <p>info@tokenestate.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Mesaj Gönder</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ad Soyad</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Konu</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Seçiniz</option>
+                                <option value="investment">Yatırım</option>
+                                <option value="technical">Teknik Destek</option>
+                                <option value="partnership">İş Birliği</option>
+                                <option value="other">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesaj</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <a href="about.html">Hakkımızda</a>
+                    <a href="how-it-works.html">Nasıl Çalışır</a>
+                    <a href="contact.html" class="active">İletişim</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Yasal</h4>
+                    <a href="terms.html">Kullanım Koşulları</a>
+                    <a href="privacy.html">Gizlilik Politikası</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+</html> 
